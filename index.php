@@ -105,7 +105,7 @@ if (session_status() == PHP_SESSION_NONE) {
             <hr>
             <p>
                 Puedes revisar el código completo en el siguiente enlace:<br>
-                <a href="https://github.com/TU_USUARIO/TU_REPO" target="_blank">
+                <a href="https://github.com/SJLuisGabriel/examen_Ferti" target="_blank">
                     GitHub - Proyecto Fertilab
                 </a>
             </p>
