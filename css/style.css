@@ -1,0 +1,600 @@
+:root {
+    /* Colores principales */
+
+    /* Verde */
+    --verde-fertilab: #73B38D;
+    /* Gris claro */
+    --gris-claro: #E1E1E1;
+    /* Gris oscuro para fondos */
+    --gris-oscuro: #2C2C2C;
+    /* Blanco */
+    --blanco: #FFFFFF;
+    /* Negro */
+    --negro: #000000;
+
+
+    /* Colores para modo oscuro */
+    /* Fondo en modo oscuro */
+    --fondo-oscuro: #121212;
+    /* Fondo secundario */
+    --fondo-secundario: #1E1E1E;
+    /* color claro */
+    --texto-claro: #E1E1E1;
+    /* Verde claro */
+    --verde-claro: #A1D8A1;
+    /* Verde oscuro */
+    --verde-oscuro: #4C9A4C;
+}
+
+/* ======== RESPONSIVE ======== */
+
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .productos-table th,
+    .productos-table td {
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    .btn-agregar,
+    .btn-editar,
+    .btn-eliminar {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+
+    .login-container,
+    .perfil-container,
+    .editar-productos-container,
+    .agregar-productos-container {
+        width: 100%;
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .login-container input,
+    .editar-productos-container input,
+    .agregar-productos-container input,
+    .editar-productos-container textarea,
+    .agregar-productos-container textarea {
+        width: 100%;
+    }
+
+    .login-title,
+    .perfil-title,
+    .productos-title {
+        font-size: 1.5rem;
+        margin: 30px 0 15px;
+    }
+
+    .productos-actions {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .productos-table-container {
+        overflow-x: auto;
+        margin: 0;
+    }
+
+    .productos-table {
+        font-size: 13px;
+        min-width: 600px;
+        /* mantiene estructura horizontal con scroll */
+    }
+
+    hr {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .login-container .error,
+    .perfil-container .error,
+    .perfil-container .exito {
+        width: 100%;
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-table {
+        font-size: 12px;
+    }
+
+    .btn-agregar,
+    .btn-editar,
+    .btn-eliminar {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+}
+
+/* ======== ESTILOS GENERALES ======== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-claro);
+}
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+.login-title,
+.perfil-title,
+.productos-title,
+.editar-producto-title,
+.agregar-producto-title {
+    text-align: center;
+    color: var(--verde-fertilab);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.btn-editar,
+.login-container button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--verde-fertilab);
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-editar:hover,
+.login-container button:hover {
+    background-color: var(--verde-oscuro);
+    transform: scale(1.05);
+}
+
+.perfil-container,
+.editar-productos-container,
+.agregar-productos-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--fondo-secundario);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: var(--texto-claro);
+    font-family: Arial, sans-serif;
+}
+
+.editar-container {
+    width: 100%;
+    border-color: solid 3px #b30000;
+}
+
+.editar-container label,
+.editar-productos-container label,
+.agregar-productos-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: var(--verde-fertilab);
+}
+
+.editar-container input,
+.editar-productos-container input,
+.agregar-productos-container input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gris-oscuro);
+    color: var(--texto-claro);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.editar-container input:focus,
+.editar-productos-container input:focus,
+.agregar-productos-container input:focus {
+    outline: none;
+    border: 2px solid var(--verde-fertilab);
+    background-color: var(--negro);
+}
+
+.editar-container button,
+.editar-productos-container button,
+.agregar-productos-container button {
+    width: 100%;
+    padding: 12px;
+}
+
+.editar-productos-container textarea,
+.agregar-productos-container textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gris-oscuro);
+    color: var(--texto-claro);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 50px;
+}
+
+.editar-productos-container textarea:focus,
+.agregar-productos-container textarea:focus {
+    outline: none;
+    border: 2px solid var(--verde-fertilab);
+    background-color: var(--negro);
+}
+
+.login-container .error,
+.perfil-container .error,
+.productos-container .error {
+    padding: 12px 6px;
+    width: 60%;
+    margin: 5px auto 0;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #ffe0e0;
+    color: #b30000;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.perfil-container .exito,
+.productos-container .exito {
+    padding: 12px 6px;
+    width: 60%;
+    margin: 5px auto 10px;
+    border-radius: 8px;
+    background-color: var(--verde-claro);
+    color: var(--blanco);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--verde-fertilab);
+}
+
+
+/* ======== NAVBAR ======== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fondo-secundario);
+    padding: 0.8rem 2rem;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .activo {
+    color: var(--verde-claro);
+    border-bottom: 2px solid var(--verde-fertilab);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--verde-fertilab);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto-claro);
+    font-weight: 500;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 3px;
+}
+
+nav ul li a:hover {
+    color: var(--verde-claro);
+    border-bottom: 2px solid var(--verde-fertilab);
+}
+
+nav ul li a.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: gray;
+    opacity: 0.6;
+}
+
+/* ======== LOGIN FORM ======== */
+
+.login-container {
+    background-color: var(--fondo-secundario);
+    padding: 2rem;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    width: 390px;
+    max-width: 380px;
+    margin: 40px auto;
+    padding: 24px;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 16px;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--verde-fertilab);
+}
+
+.login-container input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gris-oscuro);
+    color: var(--texto-claro);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border: 2px solid var(--verde-fertilab);
+    background-color: var(--negro);
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+}
+
+.login-container button:hover {
+    background-color: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--verde-fertilab), transparent);
+    margin: 40px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== PERFIL ======== */
+
+.perfil-info p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.perfil-info strong {
+    color: var(--verde-claro);
+}
+
+.perfil-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ======== PRODUCTOS ======== */
+
+.productos-actions {
+    text-align: right;
+    margin: 20px 20px;
+}
+
+.btn-agregar,
+.btn-editar,
+.btn-eliminar {
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: var(--blanco);
+}
+
+.btn-agregar {
+    background-color: var(--verde-fertilab);
+}
+
+.btn-agregar:hover {
+    background-color: var(--verde-oscuro);
+}
+
+.btn-editar {
+    background-color: var(--verde-claro);
+    margin-right: 5px;
+}
+
+.btn-editar:hover {
+    background-color: var(--verde-oscuro);
+}
+
+.btn-eliminar {
+    background-color: #ff4d4d;
+}
+
+.btn-eliminar:hover {
+    background-color: #b30000;
+}
+
+.productos-table-container {
+    overflow-x: auto;
+    margin: 0 20px;
+    border-color: solid 2px var(--verde-oscuro);
+}
+
+.productos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--fondo-secundario);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.productos-table th,
+.productos-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--gris-oscuro);
+}
+
+.productos-table th {
+    background-color: var(--gris-oscuro);
+    color: var(--texto-claro);
+}
+
+.productos-table tr:hover {
+    background-color: rgba(115, 179, 141, 0.1);
+}
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ======== INDEX ======== */
+
+.code-container {
+    position: relative;
+    background: var(--gris-oscuro);
+    padding: 15px;
+    border-radius: 8px;
+    color: var(--texto-claro);
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+.code-container pre {
+    margin: 0;
+}
+
+.code-container button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--verde-fertilab);
+    color: var(--blanco);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.code-container button:hover {
+    background-color: var(--verde-oscuro);
+    transform: scale(1.05);
+}
+
+.header {
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-index {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+div #introduccion {
+    margin-bottom: 30px;
+}
+
+.container section h2 {
+    color: var(--verde-oscuro);
+}
+
+.container pre {
+    background: var(--fondo-secundario);
+    color: var(--texto-claro);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+section a {
+    color: var(--verde-oscuro);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+.perfil-container {
+    width: 100%;
+}
